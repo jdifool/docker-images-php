@@ -14,13 +14,15 @@ ENV APACHE_DOCUMENT_ROOT=public/ \
 	PHP_EXTENSION_LDAP=1 \
 	PHP_EXTENSION_SOCKETS=1 \
 	PHP_EXTENSION_TIDY=1 \
-	PHP_EXTENSION_UPLOADPROGRESS=1 \ 
-	PHP_EXTENSION_UUID=1 \ 
-	PHP_EXTENSION_XMLRPC=1 \ 
-	PHP_EXTENSION_XSL=1 \ 
+	PHP_EXTENSION_UPLOADPROGRESS=1 \
+	PHP_EXTENSION_UUID=1 \
+	PHP_EXTENSION_XMLRPC=1 \
+	PHP_EXTENSION_XSL=1 \
 	PHP_EXTENSION_YAML=1 \
-	TZ=Europe/Berlin
+	TZ=Europe/Berlin \
+	PHP_INI_INTL__DEFAULT_LOCALE=de_DE.UTF-8
 
 RUN sudo apt-get update && \
 	sudo apt-get install -y --no-install-recommends imagemagick && \
+	sudo apt-get install -y locales locales-all && \
 	sudo rm -rf /var/lib/apt/lists/*
